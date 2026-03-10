@@ -1,75 +1,72 @@
-# Nuxt Minimal Starter
+# Delivery App — Мини-приложение для оформления заявок на доставку
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Приложение для создания и управления заявками на доставку посылок. Реализовано с использованием **Vue 3**, **Nuxt 3**, **Vuetify** и **TypeScript**.
 
-## Setup
+**Деплой:** [delivery-vue-app.vercel.app](https://delivery-vue-app.vercel.app/)
 
-Make sure to install dependencies:
+---
+
+## Функциональность
+
+### Форма оформления заявки (3 шага)
+
+**Шаг 1 — Отправитель**
+- Имя (обязательное, минимум 2 символа, только буквы)
+- Телефон (обязательное, формат +7 и 10 цифр, маска ввода)
+- Город отправления (обязательное, только буквы, пробелы и дефисы)
+
+**Шаг 2 — Получатель и посылка**
+- Имя получателя (обязательное, только буквы)
+- Город назначения (обязательное, не может совпадать с городом отправления)
+- Тип груза: документы / хрупкое / обычное
+- Вес (число, от 0.1 до 30 кг)
+
+**Шаг 3 — Подтверждение**
+- Сводка введенных данных (read-only)
+- Чекбокс согласия с условиями (обязательный)
+- Кнопка отправки
+
+**Особенности формы**
+- Прогресс-бар с отображением текущего шага
+- Сохранение данных в localStorage при переходе между шагами
+- Валидация всех полей с понятными сообщениями об ошибках
+- Адаптивная верстка (Vuetify Grid System)
+
+### История заявок (/orders)
+
+- Список всех оформленных заявок из localStorage
+- Карточка заявки содержит: маршрут, имя отправителя, тип груза, дату создания, статус
+- Поиск по имени получателя и городу назначения
+- Фильтрация по типу груза
+- Возможность удаления заявки с подтверждением в модальном окне (Vuetify Dialog)
+- При клике на заявку — отдельная страница с полными деталями
+
+---
+
+## Технологии
+
+- **Vue 3** — Composition API, reactive state
+- **Nuxt 3** — файловая маршрутизация, SSR-ready, серверные возможности
+- **Vuetify 3** — Material Design компоненты, адаптивная сетка
+- **TypeScript** — строгая типизация всех сущностей
+- **Pinia** — управление состоянием заказов
+- **localStorage** — хранение данных
+- **SCSS** — кастомные стили
+
+---
+
+## Установка и запуск
 
 ```bash
-# npm
+# Клонировать репозиторий
+git clone https://github.com/alinidi/delivery-vue-app.git
+cd delivery-vue-app
+
+# Установить зависимости
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Запустить в режиме разработки
 npm run dev
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+# Открыть в браузере
+http://localhost:3000
