@@ -1,0 +1,25 @@
+{
+  "name": "delivery-app-nuxt",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.11.3",
+    "nuxt": "^4.3.1",
+    "vue": "^3.5.30",
+    "vue-router": "^4.6.4",
+    "vuetify-nuxt-module": "^1.0.0-alpha.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.4.0",
+    "prettier": "3.8.1",
+    "sass": "^1.97.3",
+    "sass-loader": "^16.0.7"
+  }
+}
